@@ -1,7 +1,4 @@
-# InstiKit Premium v5.5 - Frontend Reverse Engineering Guide
-
-## Application Overview
-
+Arthy
 **App**: InstiKit Premium - School ERP Solution  
 **Backend**: Laravel 12 (PHP 8.2+) - fully readable  
 **Frontend**: Vue 3 SPA - source code missing, only minified Vite build output exists  
