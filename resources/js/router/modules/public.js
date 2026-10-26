@@ -1,0 +1,15 @@
+export default [
+    { path: 'pages/:slug', name: 'SitePageView', meta: { showLogo: false }, component: () => import('@/views/Pages/Site/Page/View.vue') },
+    { path: 'site/posts', name: 'SitePost', meta: { hideCard: true, showLogo: false }, component: () => import('@/views/Pages/Site/Post/Index.vue') },
+    { path: 'site/posts/:uuid', name: 'SitePostView', meta: { hideCard: true, showLogo: false }, component: () => import('@/views/Pages/Site/Post/View.vue') },
+    { path: 'job/vacancies', name: 'JobVacancies', meta: { showLogo: false }, component: () => import('@/views/Pages/Recruitment/Job/Vacancy.vue') },
+    { path: 'job/vacancies/:slug', name: 'JobVacancyDetail', meta: { showLogo: false }, component: () => import('@/views/Pages/Recruitment/Job/VacancyDetail.vue') },
+    { path: 'job/vacancies/:slug/application', name: 'JobVacancyApplication', meta: { showLogo: false }, component: () => import('@/views/Pages/Recruitment/Job/Application.vue') },
+    { path: 'online-enquiry', name: 'OnlineEnquiry', meta: { showLogo: false }, component: () => import('@/views/Pages/Reception/OnlineEnquiry/Index.vue') },
+    { path: 'online-registration', name: 'OnlineRegistration', meta: { showLogo: false }, component: () => import('@/views/Pages/Student/OnlineRegistration/Index.vue') },
+    { path: 'online-registration/verify', name: 'OnlineRegistrationVerify', meta: { showLogo: false }, component: () => import('@/views/Pages/Student/OnlineRegistration/Verify.vue') },
+    { path: 'online-registration/form/:number', name: 'OnlineRegistrationForm', meta: { showLogo: false }, component: () => import('@/views/Pages/Student/OnlineRegistration/Form.vue') },
+    { path: 'payment', name: 'GuestPayment', meta: { showLogo: false }, component: () => import('@/views/Pages/Student/GuestPayment/Index.vue') },
+    { path: 'payments/:uuid', name: 'AnonymousGuestPayment', meta: { showLogo: false }, component: () => import('@/views/Pages/Student/GuestPayment/Anonymous.vue') },
+    { path: 'transfer-certificate', name: 'TransferCertificate', meta: { showLogo: false }, component: () => import('@/views/Pages/Student/TransferCertificate/Index.vue') },
+];

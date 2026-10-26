@@ -1,0 +1,57 @@
+function crud(path, name, imp) {
+    return { path, name, redirect: { name: `${name}List` }, children: [
+        { path: '', name: `${name}List`, component: () => import(`../../views/Pages/${imp}/Index.vue`) },
+        { path: 'create', name: `${name}Create`, meta: { action: 'create' }, component: () => import(`../../views/Pages/${imp}/Action.vue`) },
+        { path: ':uuid/edit', name: `${name}Edit`, meta: { action: 'edit' }, component: () => import(`../../views/Pages/${imp}/Action.vue`) },
+        { path: ':uuid/duplicate', name: `${name}Duplicate`, meta: { action: 'create' }, component: () => import(`../../views/Pages/${imp}/Action.vue`) },
+        { path: ':uuid', name: `${name}Show`, component: () => import(`../../views/Pages/${imp}/Show.vue`) },
+    ]};
+}
+export default [
+    { path: 'exams', name: 'Exam', redirect: { name: 'ExamList' }, children: [
+        { path: '', name: 'ExamList', component: () => import('@/views/Pages/Exam/Index.vue') },
+        { path: 'create', name: 'ExamCreate', meta: { action: 'create' }, component: () => import('@/views/Pages/Exam/Action.vue') },
+        { path: ':uuid/edit', name: 'ExamEdit', meta: { action: 'edit' }, component: () => import('@/views/Pages/Exam/Action.vue') },
+        { path: ':uuid', name: 'ExamShow', component: () => import('@/views/Pages/Exam/Show.vue') },
+    ]},
+    crud('exam/terms', 'ExamTerm', 'Exam/Term'),
+    crud('exam/grades', 'ExamGrade', 'Exam/Grade'),
+    crud('exam/assessments', 'ExamAssessment', 'Exam/Assessment'),
+    crud('exam/observations', 'ExamObservation', 'Exam/Observation'),
+    crud('exam/competencies', 'ExamCompetency', 'Exam/Competency'),
+    { path: 'exam/schedules', name: 'ExamSchedule', redirect: { name: 'ExamScheduleList' }, children: [
+        { path: '', name: 'ExamScheduleList', component: () => import('@/views/Pages/Exam/Schedule/Index.vue') },
+        { path: 'create', name: 'ExamScheduleCreate', meta: { action: 'create' }, component: () => import('@/views/Pages/Exam/Schedule/Action.vue') },
+        { path: ':uuid/edit', name: 'ExamScheduleEdit', meta: { action: 'edit' }, component: () => import('@/views/Pages/Exam/Schedule/Action.vue') },
+        { path: ':uuid', name: 'ExamScheduleShow', component: () => import('@/views/Pages/Exam/Schedule/Show.vue') },
+        { path: ':uuid/form-submission', name: 'ExamScheduleFormSubmission', component: () => import('@/views/Pages/Exam/Schedule/FormSubmission.vue') },
+    ]},
+    { path: 'exam/forms', name: 'ExamFormList', component: () => import('@/views/Pages/Exam/Form/Index.vue') },
+    { path: 'exam/forms/:uuid', name: 'ExamFormShow', component: () => import('@/views/Pages/Exam/Form/Show.vue') },
+    { path: 'exam/online-exams', name: 'ExamOnlineExam', redirect: { name: 'ExamOnlineExamList' }, children: [
+        { path: '', name: 'ExamOnlineExamList', component: () => import('@/views/Pages/Exam/OnlineExam/Index.vue') },
+        { path: 'create', name: 'ExamOnlineExamCreate', meta: { action: 'create' }, component: () => import('@/views/Pages/Exam/OnlineExam/Action.vue') },
+        { path: ':uuid/edit', name: 'ExamOnlineExamEdit', meta: { action: 'edit' }, component: () => import('@/views/Pages/Exam/OnlineExam/Action.vue') },
+        { path: ':uuid', name: 'ExamOnlineExamShow', component: () => import('@/views/Pages/Exam/OnlineExam/Show.vue') },
+        { path: ':uuid/submit', name: 'ExamOnlineExamSubmit', component: () => import('@/views/Pages/Exam/OnlineExam/Submit.vue') },
+        { path: ':uuid/general', name: 'ExamOnlineExamGeneral', component: () => import('@/views/Pages/Exam/OnlineExam/General.vue') },
+        { path: ':uuid/questions', name: 'ExamOnlineExamQuestions', component: () => import('@/views/Pages/Exam/OnlineExam/Question/Index.vue') },
+        { path: ':uuid/submissions', name: 'ExamOnlineExamSubmissions', component: () => import('@/views/Pages/Exam/OnlineExam/Submission/Index.vue') },
+        { path: ':uuid/submissions/:submissionUuid', name: 'ExamOnlineExamSubmission', component: () => import('@/views/Pages/Exam/OnlineExam/Submission.vue') },
+    ]},
+    { path: 'exams/admit-cards', name: 'ExamAdmitCard', component: () => import('@/views/Pages/Exam/AdmitCard/Index.vue') },
+    { path: 'exams/marks', name: 'ExamMark', component: () => import('@/views/Pages/Exam/Mark/Index.vue') },
+    { path: 'exams/observation-marks', name: 'ExamObservationMark', component: () => import('@/views/Pages/Exam/ObservationMark/Index.vue') },
+    { path: 'exams/competency-evaluations', name: 'ExamCompetencyEvaluation', component: () => import('@/views/Pages/Exam/CompetencyEvaluation/Index.vue') },
+    { path: 'exams/comments', name: 'ExamComment', component: () => import('@/views/Pages/Exam/Comment/Index.vue') },
+    { path: 'exams/attendance', name: 'ExamAttendance', component: () => import('@/views/Pages/Exam/Attendance/Index.vue') },
+    { path: 'exam/marksheet', name: 'ExamMarksheet', component: () => import('@/views/Pages/Exam/Marksheet/Index.vue') },
+    { path: 'exam/marksheet/print', name: 'ExamMarksheetPrint', component: () => import('@/views/Pages/Exam/Marksheet/Print/Index.vue') },
+    { path: 'exam/marksheet/process', name: 'ExamMarksheetProcess', component: () => import('@/views/Pages/Exam/Marksheet/Process/Index.vue') },
+    { path: 'exam/reports', name: 'ExamReport', component: () => import('@/views/Pages/Exam/Report/Index.vue') },
+    { path: 'exam/reports/mark-summary', name: 'ExamReportMarkSummary', component: () => import('@/views/Pages/Exam/Report/MarkSummary/Index.vue') },
+    { path: 'exam/reports/exam-summary', name: 'ExamReportExamSummary', component: () => import('@/views/Pages/Exam/Report/ExamSummary/Index.vue') },
+    { path: 'exam/config', name: 'ExamConfig', redirect: { name: 'ExamConfigGeneral' }, children: [
+        { path: 'general', name: 'ExamConfigGeneral', component: () => import('@/views/Pages/Exam/Config/General.vue') },
+    ]},
+];
